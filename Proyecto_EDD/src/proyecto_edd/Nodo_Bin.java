@@ -10,27 +10,22 @@ package proyecto_edd;
  * @author usuario
  */
 public class Nodo_Bin {
-    
-    public int frecuencia;
+ public int frecuencia;
     public char c;
     public Nodo_Bin izquierda;
     public Nodo_Bin derecha;
- 
-    
-    /* Constructor */
-   
-    
-     public Nodo_Bin(int frecuencia, char c, Nodo_Bin izquierda, Nodo_Bin derecha) {
+
+    public Nodo_Bin(int frecuencia, char c, Nodo_Bin izquierda, Nodo_Bin derecha) {
         this.frecuencia = frecuencia;
         this.c = c;
         this.izquierda = izquierda;
         this.derecha = derecha;
     }
-     
-     public Nodo_Bin() {
-        //does Nothing
+
+    public Nodo_Bin() {
+        
     }
-    
+
     public Nodo_Bin agregarNodo(Nodo_Bin nodo1, Nodo_Bin nodo2) {
         if (nodo1.frecuencia < nodo2.frecuencia) {
             izquierda = nodo1;
@@ -43,7 +38,5 @@ public class Nodo_Bin {
 
         return this;
     }
-    
-     
-    
+   
 }

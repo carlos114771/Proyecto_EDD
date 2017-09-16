@@ -1,5 +1,7 @@
 package proyecto_edd;
 
+import java.util.Scanner;
+
 public class Principal extends javax.swing.JFrame {
 
     public Principal() {
@@ -11,10 +13,16 @@ public class Principal extends javax.swing.JFrame {
 
         jd_arboles = new javax.swing.JDialog();
         jd_grafos = new javax.swing.JDialog();
+        jd_compresor_texto = new javax.swing.JDialog();
+        jLabel1 = new javax.swing.JLabel();
+        tf_texto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tf_texto_final = new javax.swing.JTextField();
+        boton_comprimir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        compresor_texto = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jd_arbolesLayout = new javax.swing.GroupLayout(jd_arboles.getContentPane());
         jd_arboles.getContentPane().setLayout(jd_arbolesLayout);
@@ -38,17 +46,55 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel1.setText("Ingrese Texto:");
+
+        jLabel2.setText("Texto Comprimido");
+
+        boton_comprimir.setText("Comprimir");
+        boton_comprimir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_comprimirMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_compresor_textoLayout = new javax.swing.GroupLayout(jd_compresor_texto.getContentPane());
+        jd_compresor_texto.getContentPane().setLayout(jd_compresor_textoLayout);
+        jd_compresor_textoLayout.setHorizontalGroup(
+            jd_compresor_textoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_compresor_textoLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jd_compresor_textoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jd_compresor_textoLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(42, 42, 42)
+                        .addComponent(tf_texto, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                    .addComponent(tf_texto_final, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_compresor_textoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boton_comprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+        );
+        jd_compresor_textoLayout.setVerticalGroup(
+            jd_compresor_textoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_compresor_textoLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addGroup(jd_compresor_textoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tf_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(boton_comprimir)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(tf_texto_final, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Opciones");
-
-        jMenuItem1.setText("Arboles");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Grafos");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +103,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        compresor_texto.setText("Compresor de Texto");
+        compresor_texto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                compresor_textoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(compresor_texto);
 
         jMenuBar1.add(jMenu1);
 
@@ -76,19 +130,28 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.jd_arboles.setModal(true);
-        this.jd_arboles.pack();
-        this.jd_arboles.setLocationRelativeTo(this);
-        this.jd_arboles.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         this.jd_grafos.setModal(true);
         this.jd_grafos.pack();
         this.jd_grafos.setLocationRelativeTo(this);
         this.jd_grafos.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void compresor_textoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compresor_textoActionPerformed
+         this.jd_compresor_texto.setModal(true);
+        this.jd_compresor_texto.pack();
+        this.jd_compresor_texto.setLocationRelativeTo(this);
+        this.jd_compresor_texto.setVisible(true);
+    }//GEN-LAST:event_compresor_textoActionPerformed
+
+    private void boton_comprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_comprimirMouseClicked
+
+        Comprension huffman;
+        String l=tf_texto.getText();
+        huffman = new Comprension(l);
+        String m=huffman.hC.binario_final;
+        tf_texto_final.setText(m);
+    }//GEN-LAST:event_boton_comprimirMouseClicked
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -117,11 +180,18 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_comprimir;
+    private javax.swing.JMenuItem compresor_texto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JDialog jd_arboles;
+    private javax.swing.JDialog jd_compresor_texto;
     private javax.swing.JDialog jd_grafos;
+    private javax.swing.JTextField tf_texto;
+    private javax.swing.JTextField tf_texto_final;
     // End of variables declaration//GEN-END:variables
+    //static Codificador h;
 }

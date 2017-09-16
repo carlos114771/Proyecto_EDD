@@ -10,27 +10,25 @@ package proyecto_edd;
  * @author usuario
  */
 public class Arbol_Bin  extends Nodo_Bin{
-    /* Atributos */
     private Nodo_Bin raiz;
- 
-    /* Contructores */    
+
+    public Arbol_Bin() {
+        raiz = null;
+    }
+
     public Arbol_Bin(Nodo_Bin nodo1, Nodo_Bin nodo2) {
         raiz = super.agregarNodo(nodo1, nodo2);
     }
 
-    public Arbol_Bin() {
-        raiz=null;
-    }
-    
-     public void insertarNodo(int frec, char c) {
-        raiz.frecuencia= frec;
+    public void insertarNodo(int freq, char c) {
+        raiz.frecuencia = freq;
         raiz.c = c;
         raiz.izquierda = null;
         raiz.derecha = null;
     }
 
-    public void insertarNodo(int frec, char c, Nodo_Bin izquierda, Nodo_Bin derecha) {
-        raiz.frecuencia = frec;
+    public void insertarNodo(int freq, char c, Nodo_Bin izquierda, Nodo_Bin derecha) {
+        raiz.frecuencia = freq;
         raiz.c = c;
         this.raiz.izquierda = izquierda;
         this.raiz.derecha = derecha;
