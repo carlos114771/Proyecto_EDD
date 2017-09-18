@@ -10,49 +10,33 @@ package proyecto_edd;
  * @author usuario
  */
 public class Nodo_Bin {
-    
-    private int valor;
- 
-    private Nodo_Bin padre;
-    private Nodo_Bin hojaIzquierda;
-    private Nodo_Bin hojaDerecha;
- 
-    /* Constructor */
-    public Nodo_Bin(int valor) {
-        this.valor = valor;
+ public int frecuencia;
+    public char c;
+    public Nodo_Bin izquierda;
+    public Nodo_Bin derecha;
+
+    public Nodo_Bin(int frecuencia, char c, Nodo_Bin izquierda, Nodo_Bin derecha) {
+        this.frecuencia = frecuencia;
+        this.c = c;
+        this.izquierda = izquierda;
+        this.derecha = derecha;
     }
- 
-    /* Setters y Getters */
-    public void setValor(int valor) {
-        this.valor = valor;
+
+    public Nodo_Bin() {
+        
     }
- 
-    public int getValor() {
-        return valor;
+
+    public Nodo_Bin agregarNodo(Nodo_Bin nodo1, Nodo_Bin nodo2) {
+        if (nodo1.frecuencia < nodo2.frecuencia) {
+            izquierda = nodo1;
+            derecha = nodo2;
+        } else {
+            derecha = nodo1;
+            izquierda = nodo2;
+        }
+        frecuencia = nodo1.frecuencia + nodo2.frecuencia;
+
+        return this;
     }
- 
-    public Nodo_Bin getPadre() {
-        return padre;
-    }
- 
-    public void setPadre(Nodo_Bin padre) {
-        this.padre = padre;
-    }
- 
-    public Nodo_Bin getHojaIzquierda() {
-        return hojaIzquierda;
-    }
- 
-    public void setHojaIzquierda(Nodo_Bin hojaIzquierda) {
-        this.hojaIzquierda = hojaIzquierda;
-    }
- 
-    public Nodo_Bin getHojaDerecha() {
-        return hojaDerecha;
-    }
- 
-    public void setHojaDerecha(Nodo_Bin hojaDerecha) {
-        this.hojaDerecha = hojaDerecha;
-    }
-    
+   
 }
