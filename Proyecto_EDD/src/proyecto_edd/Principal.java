@@ -23,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         compresor_texto = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jd_arbolesLayout = new javax.swing.GroupLayout(jd_arboles.getContentPane());
         jd_arboles.getContentPane().setLayout(jd_arbolesLayout);
@@ -112,6 +113,9 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(compresor_texto);
 
+        jMenuItem1.setText("Expresion Matematicas");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -186,6 +190,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JDialog jd_arboles;
     private javax.swing.JDialog jd_compresor_texto;
