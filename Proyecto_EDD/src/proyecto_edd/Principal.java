@@ -9,13 +9,14 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         extras();
+        setLocationRelativeTo(null);
     }
-    
+
     public void extras() {
         jl_empleado.setModel(modelo);
         jlb_empleado.setVisible(false);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,12 +61,19 @@ public class Principal extends javax.swing.JFrame {
         bt_eliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_arbol = new javax.swing.JTextArea();
+        jd_expreson = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        tf_expresion = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        tf_total = new javax.swing.JTextField();
+        boton_calcular = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mi_evaluacion = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         compresor_texto = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menu_expresion = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jd_arbolesLayout = new javax.swing.GroupLayout(jd_arboles.getContentPane());
         jd_arboles.getContentPane().setLayout(jd_arbolesLayout);
@@ -366,6 +374,63 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)))
         );
 
+        jLabel13.setText("Ingrese Expresion: ");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel14.setText("Expresión Matematicas");
+
+        jLabel15.setText("Total:");
+
+        boton_calcular.setText("Calcular");
+        boton_calcular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_calcularMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_expresonLayout = new javax.swing.GroupLayout(jd_expreson.getContentPane());
+        jd_expreson.getContentPane().setLayout(jd_expresonLayout);
+        jd_expresonLayout.setHorizontalGroup(
+            jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_expresonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(105, 105, 105))
+            .addGroup(jd_expresonLayout.createSequentialGroup()
+                .addGroup(jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_expresonLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_expresonLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel15)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tf_expresion, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                    .addComponent(tf_total)
+                    .addGroup(jd_expresonLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(boton_calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jd_expresonLayout.setVerticalGroup(
+            jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_expresonLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel14)
+                .addGap(31, 31, 31)
+                .addGroup(jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_expresion, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(boton_calcular, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addGroup(jd_expresonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_total, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(81, 81, 81))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Opciones");
@@ -394,8 +459,13 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(compresor_texto);
 
-        jMenuItem1.setText("Expresion Matematicas");
-        jMenu1.add(jMenuItem1);
+        menu_expresion.setText("Expresion Matematicas");
+        menu_expresion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_expresionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menu_expresion);
 
         jMenuBar1.add(jMenu1);
 
@@ -431,9 +501,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void boton_comprimirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_comprimirMouseClicked
         Comprension huffman;
-        String l=tf_texto.getText();
+        String l = tf_texto.getText();
         huffman = new Comprension(l);
-        String m=huffman.hC.binario_final;
+        String m = huffman.hC.binario_final;
         tf_texto_final.setText(m);
     }//GEN-LAST:event_boton_comprimirMouseClicked
 
@@ -469,16 +539,16 @@ public class Principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ID no válido");
             return;
         }
-        if (arbol!=null && !arbol.isEmpty() && arbol.exists(id)) {
+        if (arbol != null && !arbol.isEmpty() && arbol.exists(id)) {
             JOptionPane.showMessageDialog(this, "ID ya existente");
             return;
         }
-        if (arbol==null) {
+        if (arbol == null) {
             arbol = new Arbol_Evaluacion(new Empleado(nombre, id, area, valor));
             modelo.addElement(arbol.getRaiz());
             jlb_empleado.setVisible(true);
         } else {
-            if (jl_empleado.getSelectedIndex()>-1) {
+            if (jl_empleado.getSelectedIndex() > -1) {
                 int pos = jl_empleado.getSelectedIndex();
                 Empleado jefe = (Empleado) modelo.get(pos);
                 arbol.hoja(jefe, new Empleado(nombre, id, area, valor));
@@ -502,7 +572,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_agregarActionPerformed
 
     private void bt_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarActionPerformed
-        if (jl_empleado_mod.getSelectedIndex()>-1) {
+        if (jl_empleado_mod.getSelectedIndex() > -1) {
             int pos = jl_empleado_mod.getSelectedIndex();
             String nombre, area;
             int valor, id;
@@ -526,7 +596,7 @@ public class Principal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "¡Ingrese un valor positivo!");
                 return;
             }
-            arbol.CambiarEmpleado(nombre, area, valor,(Empleado)modelo.get(pos));
+            arbol.CambiarEmpleado(nombre, area, valor, (Empleado) modelo.get(pos));
             arbol.Evaluaciones();
             ta_arbol.setText(arbol.print());
             jl_empleado_mod.repaint();
@@ -536,14 +606,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_modificarActionPerformed
 
     private void bt_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_eliminarActionPerformed
-        if (jl_empleado_mod.getSelectedIndex()>-1) {
+        if (jl_empleado_mod.getSelectedIndex() > -1) {
             Empleado empleado = (Empleado) modelo.get(jl_empleado_mod.getSelectedIndex());
             modelo.remove(jl_empleado_mod.getSelectedIndex());
             arbol.remove(empleado);
-            if (arbol.getRaiz()!= null) {
+            if (arbol.getRaiz() != null) {
                 ta_arbol.setText(arbol.print());
-            }
-            else {
+            } else {
                 ta_arbol.setText("");
                 tf_nombre_mod.setText("");
                 tf_area_mod.setText("");
@@ -556,13 +625,29 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_eliminarActionPerformed
 
     private void jl_empleado_modValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jl_empleado_modValueChanged
-        if (jl_empleado_mod.getSelectedIndex()>-1) {
+        if (jl_empleado_mod.getSelectedIndex() > -1) {
             Empleado empleado = (Empleado) modelo.get(jl_empleado_mod.getSelectedIndex());
             tf_nombre_mod.setText(empleado.getNombre());
             tf_area_mod.setText(empleado.getArea());
             tf_valor_mod.setText("" + empleado.getEvaluacion());
         }
     }//GEN-LAST:event_jl_empleado_modValueChanged
+
+    private void menu_expresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_expresionActionPerformed
+        this.jd_expreson.setModal(true);
+        this.jd_expreson.pack();
+        this.jd_expreson.setLocationRelativeTo(this);
+        this.jd_expreson.setVisible(true);
+    }//GEN-LAST:event_menu_expresionActionPerformed
+
+    private void boton_calcularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_calcularMouseClicked
+
+        try {
+            Evaluar();
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_boton_calcularMouseClicked
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -590,7 +675,14 @@ public class Principal extends javax.swing.JFrame {
         });
     }
 
+    private void Evaluar() throws Exception {
+        Calculadora calc = new Calculadora();
+        String exp = tf_expresion.getText();
+        tf_total.setText(String.valueOf(calc.calcular(exp)));
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_calcular;
     private javax.swing.JButton boton_comprimir;
     private javax.swing.JButton bt_agregar;
     private javax.swing.JButton bt_eliminar;
@@ -600,6 +692,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -610,7 +705,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -622,24 +716,28 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_arboles;
     private javax.swing.JDialog jd_compresor_texto;
     private javax.swing.JDialog jd_evaluacion;
+    private javax.swing.JDialog jd_expreson;
     private javax.swing.JDialog jd_grafos;
     private javax.swing.JList<String> jl_empleado;
     private javax.swing.JList<String> jl_empleado_mod;
     private javax.swing.JLabel jlb_empleado;
+    private javax.swing.JMenuItem menu_expresion;
     private javax.swing.JMenuItem mi_evaluacion;
     private javax.swing.JTextArea ta_arbol;
     private javax.swing.JTextField tf_area;
     private javax.swing.JTextField tf_area_mod;
+    private javax.swing.JTextField tf_expresion;
     private javax.swing.JTextField tf_id;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre_mod;
     private javax.swing.JTextField tf_texto;
     private javax.swing.JTextField tf_texto_final;
+    private javax.swing.JTextField tf_total;
     private javax.swing.JTextField tf_valor;
     private javax.swing.JTextField tf_valor_mod;
     // End of variables declaration//GEN-END:variables
     //static Codificador h;
     private Arbol_Evaluacion arbol;
     private final DefaultListModel modelo = new DefaultListModel();
-    
+
 }
