@@ -32,7 +32,7 @@ public class Arbol_Exp {
         }
         Nodo_Exp nodo;
         Nodo_Exp nodo2 = new Nodo_Exp(dato);
-        Stack pila = new Stack();
+        Stack pila = new Stack();//clase pila
         boolean antesOperando = false;
         Raiz = nodo2;
         for (int i = 1; i < expresion.size(); i++) {
