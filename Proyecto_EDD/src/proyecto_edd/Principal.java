@@ -1,6 +1,8 @@
 package proyecto_edd;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -60,10 +62,23 @@ public class Principal extends javax.swing.JFrame {
         bt_eliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_arbol = new javax.swing.JTextArea();
+        jd_grafo_bi = new javax.swing.JDialog();
+        tp_grafos_bi = new javax.swing.JTabbedPane();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        tf_color = new javax.swing.JTextField();
+        bt_crear_nodo = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        cb_nodo1 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cb_nodo2 = new javax.swing.JComboBox<>();
+        bt_crear_arista = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mi_evaluacion = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        mi_grafo_bi = new javax.swing.JMenuItem();
         compresor_texto = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -366,6 +381,110 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)))
         );
 
+        tp_grafos_bi.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tp_grafos_biStateChanged(evt);
+            }
+        });
+
+        jLabel15.setText("Color:");
+
+        bt_crear_nodo.setText("Crear Nodo");
+        bt_crear_nodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crear_nodoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(127, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_crear_nodo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(204, 204, 204))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(tf_color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addComponent(bt_crear_nodo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+        );
+
+        tp_grafos_bi.addTab("Nodo", jPanel5);
+
+        jLabel13.setText("Nodo 1:");
+
+        jLabel14.setText("Nodo 2:");
+
+        bt_crear_arista.setText("Crear Arista");
+        bt_crear_arista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crear_aristaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13))
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_nodo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_nodo2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(140, 140, 140))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(bt_crear_arista, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(215, 215, 215))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_nodo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(cb_nodo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(bt_crear_arista, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+        );
+
+        tp_grafos_bi.addTab("Arista", jPanel4);
+
+        javax.swing.GroupLayout jd_grafo_biLayout = new javax.swing.GroupLayout(jd_grafo_bi.getContentPane());
+        jd_grafo_bi.getContentPane().setLayout(jd_grafo_biLayout);
+        jd_grafo_biLayout.setHorizontalGroup(
+            jd_grafo_biLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tp_grafos_bi)
+        );
+        jd_grafo_biLayout.setVerticalGroup(
+            jd_grafo_biLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tp_grafos_bi, javax.swing.GroupLayout.Alignment.TRAILING)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Opciones");
@@ -385,6 +504,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        mi_grafo_bi.setText("Grafo Bicoloreable");
+        mi_grafo_bi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_grafo_biActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mi_grafo_bi);
 
         compresor_texto.setText("Compresor de Texto");
         compresor_texto.addActionListener(new java.awt.event.ActionListener() {
@@ -414,13 +541,6 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        this.jd_grafos.setModal(true);
-        this.jd_grafos.pack();
-        this.jd_grafos.setLocationRelativeTo(this);
-        this.jd_grafos.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void compresor_textoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compresor_textoActionPerformed
         this.jd_compresor_texto.setModal(true);
@@ -563,6 +683,66 @@ public class Principal extends javax.swing.JFrame {
             tf_valor_mod.setText("" + empleado.getEvaluacion());
         }
     }//GEN-LAST:event_jl_empleado_modValueChanged
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        this.jd_grafos.setModal(true);
+        this.jd_grafos.pack();
+        this.jd_grafos.setLocationRelativeTo(this);
+        this.jd_grafos.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void mi_grafo_biActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_grafo_biActionPerformed
+        this.jd_grafo_bi.setModal(true);
+        this.jd_grafo_bi.pack();
+        this.jd_grafo_bi.setLocationRelativeTo(this);
+        this.jd_grafo_bi.setVisible(true);
+    }//GEN-LAST:event_mi_grafo_biActionPerformed
+
+    private void tp_grafos_biStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tp_grafos_biStateChanged
+        if (tp_grafos_bi.getSelectedIndex() == 0){
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (Nodo_Grafo temp : lista_nodos){
+                modelo.addElement(temp);
+            }
+            cb_nodo1.setModel(modelo);
+        }
+        if (tp_grafos_bi.getSelectedIndex() == 0){
+            DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+            for (Nodo_Grafo temp : lista_nodos){
+                modelo.addElement(temp);
+            }
+            cb_nodo2.setModel(modelo);
+        }
+    }//GEN-LAST:event_tp_grafos_biStateChanged
+
+    private void bt_crear_nodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crear_nodoActionPerformed
+        try {
+            String color;
+            color = tf_color.getText();
+            lista_nodos.add(new Nodo_Grafo(color));
+            tf_color.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ingrese un color");
+        }
+    }//GEN-LAST:event_bt_crear_nodoActionPerformed
+
+    private void bt_crear_aristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crear_aristaActionPerformed
+        try {
+            String nodo1, nodo2;
+            nodo1 = cb_nodo1.getSelectedItem().toString();
+            nodo2 = cb_nodo2.getSelectedItem().toString();
+            if (nodo1.equals(nodo2)) {
+                JOptionPane.showMessageDialog(null, "¡El grafo no será bicoloreable!");
+            } else {
+                JOptionPane.showMessageDialog(null, "¡El grafo será bicoloreable!");
+            }
+            lista_aristas.add(new Arista(nodo1, nodo2));
+            cb_nodo1.setSelectedIndex(0);
+            cb_nodo2.setSelectedIndex(0);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Seleccione un nodo");
+        }
+    }//GEN-LAST:event_bt_crear_aristaActionPerformed
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -593,13 +773,20 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_comprimir;
     private javax.swing.JButton bt_agregar;
+    private javax.swing.JButton bt_crear_arista;
+    private javax.swing.JButton bt_crear_nodo;
     private javax.swing.JButton bt_eliminar;
     private javax.swing.JButton bt_modificar;
+    private javax.swing.JComboBox<String> cb_nodo1;
+    private javax.swing.JComboBox<String> cb_nodo2;
     private javax.swing.JMenuItem compresor_texto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -615,6 +802,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -622,14 +811,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_arboles;
     private javax.swing.JDialog jd_compresor_texto;
     private javax.swing.JDialog jd_evaluacion;
+    private javax.swing.JDialog jd_grafo_bi;
     private javax.swing.JDialog jd_grafos;
     private javax.swing.JList<String> jl_empleado;
     private javax.swing.JList<String> jl_empleado_mod;
     private javax.swing.JLabel jlb_empleado;
     private javax.swing.JMenuItem mi_evaluacion;
+    private javax.swing.JMenuItem mi_grafo_bi;
     private javax.swing.JTextArea ta_arbol;
     private javax.swing.JTextField tf_area;
     private javax.swing.JTextField tf_area_mod;
+    private javax.swing.JTextField tf_color;
     private javax.swing.JTextField tf_id;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre_mod;
@@ -637,9 +829,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_texto_final;
     private javax.swing.JTextField tf_valor;
     private javax.swing.JTextField tf_valor_mod;
+    private javax.swing.JTabbedPane tp_grafos_bi;
     // End of variables declaration//GEN-END:variables
     //static Codificador h;
     private Arbol_Evaluacion arbol;
     private final DefaultListModel modelo = new DefaultListModel();
-    
+    ArrayList<Nodo_Grafo> lista_nodos = new ArrayList();
+    ArrayList<Arista> lista_aristas = new ArrayList();
 }
